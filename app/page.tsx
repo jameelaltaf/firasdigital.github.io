@@ -8,12 +8,19 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main>
+      <CustomCursor />
+      <ScrollProgress />
       <ScrollObserver />
-      <div className="bg-grid fixed inset-0 pointer-events-none z-0 opacity-100" aria-hidden="true" />
+      <div
+        className="bg-grid fixed inset-0 pointer-events-none z-0"
+        aria-hidden="true"
+      />
       <Navbar />
       <Hero />
       <Ticker />
