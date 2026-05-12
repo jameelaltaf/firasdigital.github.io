@@ -37,9 +37,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
           <Link
             href="/"
-            className="text-2xl font-black text-primary tracking-tighter"
+            className="group text-2xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            Firas Digital<span className="text-secondary">.</span>
+            <span className="text-white group-hover:text-primary transition-colors duration-300 drop-shadow-none group-hover:drop-shadow-[0_0_12px_rgba(255,136,181,0.6)]">
+              Firas Digital
+            </span>
+            <span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
           </Link>
 
           {/* Desktop links */}

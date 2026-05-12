@@ -18,8 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-outline-variant/10">
           {/* Brand */}
           <div className="md:col-span-2 flex flex-col gap-5">
-            <div className="text-2xl font-black text-primary tracking-tighter">
-              Firas Digital<span className="text-secondary">.</span>
+            <div className="text-2xl font-black tracking-tighter">
+              <span className="text-white">Firas Digital</span><span className="text-secondary">.</span>
             </div>
             <p className="text-on-surface-variant text-sm leading-relaxed max-w-xs">
               Transforming performance marketing through technical excellence and
