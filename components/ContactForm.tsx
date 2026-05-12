@@ -42,6 +42,9 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (name.trim().length < 2) { setErrorMsg("Please enter your full name."); setStatus("error"); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErrorMsg("Please enter a valid email address."); setStatus("error"); return; }
+    if (phone.trim().length < 7) { setErrorMsg("Please enter a valid phone number."); setStatus("error"); return; }
     setStatus("loading");
     setErrorMsg("");
 
@@ -135,10 +138,11 @@ export default function ContactForm() {
           <label className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50">
             Country
           </label>
+          <div className="relative">
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            className="form-input bg-surface-container border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface text-sm transition-all appearance-none"
+            className="form-input w-full bg-surface-container border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface text-sm transition-all appearance-none pr-10"
           >
             <option value="">Select country</option>
             {COUNTRIES.map((c) => (
@@ -147,6 +151,10 @@ export default function ContactForm() {
               </option>
             ))}
           </select>
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/40">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M6 9l6 6 6-6" /></svg>
+          </span>
+          </div>
         </div>
       </div>
 

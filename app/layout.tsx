@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
+import ScrollObserver from "@/components/ScrollObserver";
 
 export const metadata: Metadata = {
   title: "Firas Digital | We Grow Businesses",
@@ -55,6 +58,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background selection:bg-secondary selection:text-on-secondary">
+        <CustomCursor />
+        <ScrollProgress />
+        <ScrollObserver />
         {children}
       </body>
     </html>
