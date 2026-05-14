@@ -179,8 +179,8 @@ export default function Hero() {
                 <br />
                 <span className="text-on-surface">Run Ads.</span>
               </h1>
-              <div className="h-[1.2em] mt-3">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary">
+              <div className="min-h-[2.8rem] sm:min-h-[3.5rem] lg:min-h-[4rem] mt-3">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary whitespace-nowrap overflow-hidden text-ellipsis">
                   {typeText}
                   <span className="typing-cursor" />
                 </span>
@@ -201,7 +201,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3 pt-1">
               {["Trusted by 200+ brands", "Avg. 10X ROAS", "24/7 monitoring"].map((b) => (
                 <span key={b} className="flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant/60 bg-surface-container/50 px-3 py-1.5 rounded-full border border-outline-variant/15">
-                  <span className="text-secondary text-[10px]">✦</span>
+                  <span className="text-secondary text-[10px]">✶</span>
                   {b}
                 </span>
               ))}
