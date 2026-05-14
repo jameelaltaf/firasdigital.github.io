@@ -1,6 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceTabs from "@/components/ServiceTabs";
+import type { ServiceTab } from "@/components/ServiceTabs";
+
+const socialMediaTabs: ServiceTab[] = [
+  {
+    id: "discipline",
+    label: "The Discipline",
+    title: "Social media that builds real communities and drives real revenue",
+    body: "Social Media Management is the strategic discipline of building and maintaining your brand's presence across platforms in a way that earns attention, builds trust, and converts followers into paying customers. In 2025, the brands winning on social aren't the ones posting most frequently — they're the ones creating content that stops the scroll, sparks conversation, and builds an audience that genuinely cares about what they do next.",
+    stat: { value: "12M+", label: "Organic Reach Delivered" },
+  },
+  {
+    id: "approach",
+    label: "Our Approach",
+    title: "Platform-native content engineered for engagement and growth",
+    body: "We create content built specifically for each platform's algorithm, audience behaviour, and creative formats — not repurposed assets dumped across channels. Instagram reels, TikTok-native short form, LinkedIn thought leadership, Twitter engagement plays, and Snapchat Stories all require distinct strategies. Our content team researches your audience, studies your competitors' content performance, and develops a bespoke strategy that positions your brand as a category leader.",
+    stat: { value: "4.8X", label: "Avg. Engagement Rate" },
+  },
+  {
+    id: "results",
+    label: "Your Results",
+    title: "A brand that people follow, share, and buy from",
+    body: "Our social media clients typically see 3–5X engagement rate improvements within the first 60 days, alongside meaningful follower growth from their target audience. Beyond vanity metrics, we connect social activity to business outcomes — tracking link clicks, lead form completions, DM inquiries, and attributed revenue. Social media done right becomes a full-funnel channel: building awareness at the top, nurturing consideration in the middle, and converting at the bottom.",
+    stat: { value: "60 days", label: "To Measurable Growth" },
+  },
+];
 
 export const metadata: Metadata = {
   title: "Social Media Management | Content Creation & Growth | Firas Digital",
@@ -149,8 +175,8 @@ export default function SocialMediaPage() {
 
       {/* Topbar */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
-        <Link href="/" className="text-xl font-black text-primary tracking-tighter">
-          Firas Digital<span className="text-secondary">.</span>
+        <Link href="/" className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95">
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">Firas Digital</span><span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
         </Link>
         <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">
           Book Free Audit →
@@ -200,6 +226,7 @@ export default function SocialMediaPage() {
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-6">What is Social Media Management?</h2>
+          <ServiceTabs tabs={socialMediaTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
             <p>
               Social media management is the strategic, creative, and operational discipline of building and maintaining a brand&apos;s presence across social media platforms. Done properly, it is one of the most powerful tools for building brand awareness, establishing authority, driving community engagement, and generating inbound leads. Done poorly — with inconsistent posting, generic content, and no strategy — it is a significant waste of resource and an opportunity missed.

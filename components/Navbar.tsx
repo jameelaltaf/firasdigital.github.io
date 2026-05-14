@@ -94,12 +94,13 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
               </button>
 
-              {/* Dropdown panel */}
+              {/* Dropdown panel — pt-3 bridges the hover gap so cursor moving into panel doesn't trigger onMouseLeave */}
               <div
-                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-surface-container-high border border-outline-variant/20 rounded-2xl shadow-2xl overflow-hidden transition-all duration-200 ${
+                className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 transition-all duration-200 ${
                   servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
+              <div className="bg-surface-container-high border border-outline-variant/20 rounded-2xl shadow-2xl overflow-hidden">
                 <div className="p-2">
                   {serviceLinks.map((s) => (
                     <Link
@@ -122,6 +123,7 @@ export default function Navbar() {
                     View all services →
                   </Link>
                 </div>
+              </div>
               </div>
             </li>
 

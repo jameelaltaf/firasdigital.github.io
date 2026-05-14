@@ -1,6 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceTabs from "@/components/ServiceTabs";
+import type { ServiceTab } from "@/components/ServiceTabs";
+
+const paidMediaTabs: ServiceTab[] = [
+  {
+    id: "discipline",
+    label: "The Discipline",
+    title: "Paid media that engineers profit, not just traffic",
+    body: "Paid media management is the strategic discipline of making every advertising dirham work harder. It's not about running ads — it's about building a systematic machine that finds your ideal customers at the right moment, with the right message, at the lowest possible acquisition cost. The difference between average paid media and exceptional paid media is almost entirely in the quality of strategy, creative, and data interpretation.",
+    stat: { value: "10X", label: "Average ROAS" },
+  },
+  {
+    id: "approach",
+    label: "Our Approach",
+    title: "Full-funnel architecture, not single-campaign thinking",
+    body: "We architect campaigns across the entire customer journey — cold awareness campaigns that introduce your brand, consideration campaigns that educate and build trust, conversion campaigns that close, and retention campaigns that maximise lifetime value. Most agencies only optimise the bottom of the funnel. We engineer the whole machine so every stage feeds the next, dramatically lowering your overall customer acquisition cost.",
+    stat: { value: "200+", label: "Brands Managed" },
+  },
+  {
+    id: "results",
+    label: "Your Results",
+    title: "Predictable, measurable, scalable growth",
+    body: "Our clients see measurable improvements within the first 30 days — typically a significant reduction in CPAs by weeks 2–3, followed by compounding ROAS improvements as our creative testing and audience optimisation builds momentum. By month three, paid media becomes your highest-performing acquisition channel. By month six, it's the engine your entire business scales with.",
+    stat: { value: "AED 50M+", label: "Ad Spend Managed" },
+  },
+];
 
 export const metadata: Metadata = {
   title: "Paid Media Management | Meta, Google & TikTok Ads | Firas Digital",
@@ -149,8 +175,8 @@ export default function PaidMediaPage() {
 
       {/* Topbar */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
-        <Link href="/" className="text-xl font-black text-primary tracking-tighter">
-          Firas Digital<span className="text-secondary">.</span>
+        <Link href="/" className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95">
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">Firas Digital</span><span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
         </Link>
         <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">
           Book Free Audit →
@@ -200,6 +226,7 @@ export default function PaidMediaPage() {
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-6">What is Paid Media Management?</h2>
+          <ServiceTabs tabs={paidMediaTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
             <p>
               Paid media management is the discipline of planning, executing, and continuously optimising paid advertising campaigns across digital platforms to drive measurable business results. Unlike organic channels that take months to build, paid media delivers immediate reach and traffic — but only when managed with precision and expertise.

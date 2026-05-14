@@ -1,6 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceTabs from "@/components/ServiceTabs";
+import type { ServiceTab } from "@/components/ServiceTabs";
+
+const seoTabs: ServiceTab[] = [
+  {
+    id: "discipline",
+    label: "The Discipline",
+    title: "SEO that builds compounding, unstoppable organic growth",
+    body: "Search Engine Optimisation is the long-term discipline of making your website the definitive answer to your audience's most important questions. Unlike paid ads that stop the moment your budget runs out, SEO builds a permanent asset — domain authority, rankings, and organic traffic that compounds month after month. Done right, it becomes your highest-ROI channel within 6–12 months.",
+    stat: { value: "340%", label: "Avg. Traffic Growth" },
+  },
+  {
+    id: "approach",
+    label: "Our Approach",
+    title: "Technical foundation, content authority, and aggressive link acquisition",
+    body: "Our SEO methodology runs on three engines simultaneously. Technical excellence ensures search engines can perfectly crawl, index, and understand your site. Content authority builds the topical depth that signals expertise to Google's algorithms. Aggressive link acquisition earns the off-page authority signals that push you above competitors who do two out of three. Most agencies pick one — we run all three in parallel.",
+    stat: { value: "60 days", label: "To First Results" },
+  },
+  {
+    id: "results",
+    label: "Your Results",
+    title: "First-page rankings that translate directly into revenue",
+    body: "Our clients see measurable ranking improvements within 30–60 days, with compounding traffic growth that continues for years. We prioritise high-intent, conversion-focused keywords first — the searches made by people actively looking to buy or hire — before expanding your footprint across broader awareness terms. By month six, organic becomes your most cost-efficient acquisition channel.",
+    stat: { value: "Page 1", label: "Rankings Delivered" },
+  },
+];
 
 export const metadata: Metadata = {
   title: "SEO Services | Technical SEO & Content Strategy | Firas Digital",
@@ -149,8 +175,8 @@ export default function SEOPage() {
 
       {/* Topbar */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
-        <Link href="/" className="text-xl font-black text-primary tracking-tighter">
-          Firas Digital<span className="text-secondary">.</span>
+        <Link href="/" className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95">
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">Firas Digital</span><span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
         </Link>
         <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">
           Book Free Audit →
@@ -200,6 +226,7 @@ export default function SEOPage() {
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-6">What is SEO and Why Does It Matter?</h2>
+          <ServiceTabs tabs={seoTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
             <p>
               Search Engine Optimisation (SEO) is the practice of improving your website's visibility in organic (non-paid) search results on Google and other search engines. When someone searches for a product or service you offer, appearing on page one — ideally in the top three results — can be the difference between a thriving business and one that&apos;s invisible online. Over 90% of all search traffic goes to page one results, and the top three positions capture approximately 60% of all clicks.

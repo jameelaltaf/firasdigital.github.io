@@ -1,6 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceTabs from "@/components/ServiceTabs";
+import type { ServiceTab } from "@/components/ServiceTabs";
+
+const webDesignTabs: ServiceTab[] = [
+  {
+    id: "discipline",
+    label: "The Discipline",
+    title: "Web design that converts visitors into customers from the first pixel",
+    body: "Web Design & CRO is the science and art of building digital experiences that don't just look impressive — they systematically convert visitors into leads, customers, and repeat buyers. Every design decision, from layout and hierarchy to colour, copy, and call-to-action placement, is informed by user psychology, conversion data, and continuous testing. Beautiful without performance is decoration; performance without beauty is friction. We deliver both.",
+    stat: { value: "3.4X", label: "Avg. Conversion Lift" },
+  },
+  {
+    id: "approach",
+    label: "Our Approach",
+    title: "Data-driven design, not opinionated aesthetics",
+    body: "We begin every project with a conversion audit — analysing your existing traffic, heatmaps, session recordings, and funnel data to identify exactly where visitors drop off and why. This data informs our design hypotheses, which we validate through A/B and multivariate testing before finalising. The result is a website that isn't designed to win awards — it's designed to win customers. We build for Core Web Vitals, mobile-first performance, and accessibility alongside conversion.",
+    stat: { value: "92", label: "Avg. CWV Score" },
+  },
+  {
+    id: "results",
+    label: "Your Results",
+    title: "More revenue from your existing traffic, before you spend more on ads",
+    body: "Our clients typically see conversion rate improvements of 2–4X within the first 90 days. This means the same paid media budget, the same organic traffic, the same email list — delivering dramatically more revenue. A site converting at 4% instead of 1% is effectively a 4X reduction in your customer acquisition cost across every channel. CRO is the highest-leverage investment you can make if you're already driving meaningful traffic.",
+    stat: { value: "+218%", label: "Avg. Revenue Uplift" },
+  },
+];
 
 export const metadata: Metadata = {
   title: "Web Design & CRO Services | Conversion-First Websites | Firas Digital",
@@ -149,8 +175,8 @@ export default function WebDesignCROPage() {
 
       {/* Topbar */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
-        <Link href="/" className="text-xl font-black text-primary tracking-tighter">
-          Firas Digital<span className="text-secondary">.</span>
+        <Link href="/" className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95">
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">Firas Digital</span><span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
         </Link>
         <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">
           Book Free Audit →
@@ -200,6 +226,7 @@ export default function WebDesignCROPage() {
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-6">What is Web Design & CRO?</h2>
+          <ServiceTabs tabs={webDesignTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
             <p>
               Web design and Conversion Rate Optimisation (CRO) are two disciplines that, when combined, transform your website from a digital brochure into a high-performing revenue engine. Most businesses spend heavily on driving traffic to their website — through ads, SEO, social media, and email — but fail to capitalise on that traffic because their website isn&apos;t built to convert. Firas Digital solves this.
