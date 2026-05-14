@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import ScrollObserver from "@/components/ScrollObserver";
+import ChatBot from "@/components/ChatBot";
 
 export const metadata: Metadata = {
   title: "Firas Digital | We Grow Businesses",
@@ -62,6 +63,7 @@ export default function RootLayout({
         <ScrollProgress />
         <ScrollObserver />
         {children}
+        <ChatBot />
       </body>
     </html>
   );
