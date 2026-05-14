@@ -179,8 +179,8 @@ export default function Hero() {
                 <br />
                 <span className="text-on-surface">Run Ads.</span>
               </h1>
-              <div className="h-[1.2em] mt-3">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary">
+              <div className="min-h-[2.8rem] sm:min-h-[3.5rem] lg:min-h-[4rem] mt-3">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary whitespace-nowrap overflow-hidden text-ellipsis">
                   {typeText}
                   <span className="typing-cursor" />
                 </span>

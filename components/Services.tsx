@@ -13,6 +13,7 @@ const services = [
     description:
       "Dominating the digital landscape across every high-intent platform — precision targeting, relentless optimisation.",
     tags: ["Meta", "Google Ads", "LinkedIn", "TikTok", "Snapchat", "Spotify", "Programmatic"],
+    href: "/services/paid-media",
   },
   {
     icon: (
@@ -27,6 +28,7 @@ const services = [
     description:
       "Authority-building strategies that turn organic search into a high-converting revenue channel for long-term dominance.",
     tags: ["Technical SEO", "Content", "Link Building", "Local SEO"],
+    href: "/services/seo",
   },
   {
     icon: (
@@ -41,6 +43,7 @@ const services = [
     description:
       "Scientific optimisation and world-class design to ensure every click counts — built to convert from day one.",
     tags: ["UI/UX", "Revamp", "CRO", "Landing Pages"],
+    href: "/services/web-design-cro",
   },
   {
     icon: (
@@ -56,6 +59,7 @@ const services = [
     description:
       "Elevating your brand through community-led growth and viral creative content that stops the scroll.",
     tags: ["Instagram", "Facebook", "LinkedIn", "TikTok", "YouTube"],
+    href: "/services/social-media",
   },
 ];
 
@@ -84,38 +88,39 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, i) => (
-            <div
-              key={i}
-              className="fade-up bg-tertiary-container p-10 rounded-3xl flex flex-col gap-6 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
+            <Link key={i} href={service.href} className="block group">
               <div
-                className={`w-14 h-14 ${service.iconBg} rounded-2xl flex items-center justify-center ${service.iconColor} flex-shrink-0`}
+                className="fade-up bg-tertiary-container p-10 rounded-3xl flex flex-col gap-6 h-full hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
-                {service.icon}
+                <div
+                  className={`w-14 h-14 ${service.iconBg} rounded-2xl flex items-center justify-center ${service.iconColor} flex-shrink-0`}
+                >
+                  {service.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-black text-background mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-on-tertiary text-base leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full bg-white/50 text-xs font-bold uppercase tracking-tight text-background/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-background/30 group-hover:text-primary group-hover:translate-x-2 transition-all text-xl font-bold flex items-center gap-1">
+                  Learn more <span>→</span>
+                </span>
               </div>
-              <div>
-                <h3 className="text-2xl font-black text-background mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-on-tertiary text-base leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full bg-white/50 text-xs font-bold uppercase tracking-tight text-background/60"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span className="text-background/30 group-hover:text-primary group-hover:translate-x-2 transition-all text-xl font-bold">
-                →
-              </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

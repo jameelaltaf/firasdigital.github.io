@@ -122,24 +122,25 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Platform strip */}
-      <div className="bg-surface-container border-y border-outline-variant/10 py-4 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col items-center gap-3">
+      {/* Platform strip - animated marquee */}
+      <div className="bg-surface-container border-y border-outline-variant/10 py-4 overflow-hidden" aria-hidden="true">
+        <div className="flex flex-col items-center gap-3 mb-2">
           <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">
             Authorized Partner Ecosystem
           </span>
-          <div className="flex gap-6 md:gap-10 flex-wrap justify-center">
-            {["META", "Google", "TikTok", "LinkedIn", "Snapchat", "Pinterest", "Reddit", "Spotify"].map(
-              (p) => (
-                <span
-                  key={p}
-                  className="text-sm font-bold text-on-surface-variant/30 hover:text-on-surface-variant transition-colors cursor-default"
-                >
+        </div>
+        <div className="animate-scroll whitespace-nowrap flex items-center">
+          {["META", "Google", "TikTok", "LinkedIn", "Snapchat", "Pinterest", "Reddit", "Spotify", "X (Twitter)", "YouTube", "Amazon Ads", "Microsoft Ads",
+            "META", "Google", "TikTok", "LinkedIn", "Snapchat", "Pinterest", "Reddit", "Spotify", "X (Twitter)", "YouTube", "Amazon Ads", "Microsoft Ads"].map(
+            (p, i) => (
+              <span key={i} className="flex items-center">
+                <span className="text-sm font-bold text-on-surface-variant/30 hover:text-on-surface-variant transition-colors mx-8 uppercase tracking-[0.12em]">
                   {p}
                 </span>
-              )
-            )}
-          </div>
+                <span className="text-secondary/60 text-xs">·</span>
+              </span>
+            )
+          )}
         </div>
       </div>
 
