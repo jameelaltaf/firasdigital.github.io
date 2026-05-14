@@ -37,9 +37,12 @@ export default function ContactPage() {
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
         <Link
           href="/"
-          className="text-xl font-black text-on-surface tracking-tighter"
+          className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          Firas Digital<span className="text-secondary">.</span>
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">
+            Firas Digital
+          </span>
+          <span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
         </Link>
         <a
           href="https://wa.me/971500000000"

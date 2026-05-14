@@ -36,14 +36,16 @@ function useTypewriter() {
   return PHRASES[phraseIdx].slice(0, charCount);
 }
 
-function useParallax() {
-  const [y, setY] = useState(0);
+function useParallax(ref: React.RefObject<HTMLDivElement>) {
   useEffect(() => {
-    const onScroll = () => setY(window.scrollY * 0.28);
+    const onScroll = () => {
+      if (ref.current) {
+        ref.current.style.transform = `translateY(${-window.scrollY * 0.28}px)`;
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return y;
+  }, [ref]);
 }
 
 function useCountUp(target: number, duration = 1800) {
@@ -73,13 +75,12 @@ function useCountUp(target: number, duration = 1800) {
   return { count, ref };
 }
 
-function CrystalBolt({ parallaxY }: { parallaxY: number }) {
+function CrystalBolt() {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  useParallax(parallaxRef);
   return (
-    <div
-      className="bolt-float select-none pointer-events-none"
-      style={{ transform: `translateY(${-parallaxY}px)` }}
-      aria-hidden="true"
-    >
+    <div ref={parallaxRef} className="select-none pointer-events-none" aria-hidden="true">
+    <div className="bolt-float w-full h-full">
       <svg
         viewBox="0 0 200 370"
         fill="none"
@@ -150,12 +151,12 @@ function CrystalBolt({ parallaxY }: { parallaxY: number }) {
         <circle cx="162" cy="162" r="2.5" fill="white" opacity="0.35" />
       </svg>
     </div>
+    </div>
   );
 }
 
 export default function Hero() {
   const typeText = useTypewriter();
-  const parallaxY = useParallax();
   const { count: roasCount, ref: roasRef } = useCountUp(10);
 
   return (
@@ -209,7 +210,7 @@ export default function Hero() {
           <div className="relative flex justify-center items-center h-[420px] md:h-[520px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[200px] sm:w-[240px] md:w-[260px] lg:w-[290px] h-full">
-                <CrystalBolt parallaxY={parallaxY} />
+                <CrystalBolt />
               </div>
             </div>
             <div className="absolute bottom-4 right-0 sm:right-4 bg-surface-container-high/90 backdrop-blur-xl rounded-2xl px-6 py-5 text-center border border-outline-variant/20 shadow-2xl animate-float z-10">
