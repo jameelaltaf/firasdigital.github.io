@@ -1,10 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
+const serviceLinks = [
+  { href: "/services/paid-media", label: "Paid Media", desc: "Meta, Google, TikTok & more" },
+  { href: "/services/seo", label: "SEO", desc: "Technical SEO & content strategy" },
+  { href: "/services/web-design-cro", label: "Web Design & CRO", desc: "Conversion-first websites" },
+  { href: "/services/social-media", label: "Social Media", desc: "Content creation & growth" },
+];
+
 const navLinks = [
-  { href: "/#services", label: "Services" },
   { href: "/#why-us", label: "Why Us" },
   { href: "/#process", label: "Process" },
   { href: "/#testimonials", label: "Testimonials" },
@@ -13,6 +19,8 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -24,6 +32,16 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -47,6 +65,66 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8">
+            {/* Services dropdown */}
+            <li
+              ref={servicesRef}
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                className="text-on-surface-variant hover:text-primary transition-colors font-semibold tracking-tight relative group flex items-center gap-1"
+                onClick={() => setServicesOpen((v) => !v)}
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
+              >
+                Services
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
+              </button>
+
+              {/* Dropdown panel */}
+              <div
+                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-surface-container-high border border-outline-variant/20 rounded-2xl shadow-2xl overflow-hidden transition-all duration-200 ${
+                  servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+                }`}
+              >
+                <div className="p-2">
+                  {serviceLinks.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-surface-container transition-colors group/item"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      <span className="text-sm font-bold text-on-surface group-hover/item:text-primary transition-colors">{s.label}</span>
+                      <span className="text-xs text-on-surface-variant/60">{s.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+                <div className="border-t border-outline-variant/10 px-4 py-3">
+                  <Link
+                    href="/#services"
+                    className="text-xs font-bold text-secondary hover:text-secondary/80 transition-colors"
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    View all services →
+                  </Link>
+                </div>
+              </div>
+            </li>
+
             {navLinks.map((l) => (
               <li key={l.href}>
                 <Link
@@ -101,6 +179,15 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-center gap-8 text-center">
+          <li>
+            <Link
+              href="/#services"
+              className="text-3xl font-black text-on-surface hover:text-primary transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              Services
+            </Link>
+          </li>
           {navLinks.map((l) => (
             <li key={l.href}>
               <Link
