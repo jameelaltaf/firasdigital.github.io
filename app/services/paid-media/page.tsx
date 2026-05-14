@@ -1,6 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceTabs from "@/components/ServiceTabs";
+import type { ServiceTab } from "@/components/ServiceTabs";
+
+const paidMediaTabs: ServiceTab[] = [
+  {
+    id: "discipline",
+    label: "The Discipline",
+    title: "Paid media that engineers profit, not just traffic",
+    body: "Paid media management is the strategic discipline of making every advertising dirham work harder. It's not about running ads — it's about building a systematic machine that finds your ideal customers at the right moment, with the right message, at the lowest possible acquisition cost. The difference between average paid media and exceptional paid media is almost entirely in the quality of strategy, creative, and data interpretation.",
+    stat: { value: "10X", label: "Average ROAS" },
+  },
+  {
+    id: "approach",
+    label: "Our Approach",
+    title: "Full-funnel architecture, not single-campaign thinking",
+    body: "We architect campaigns across the entire customer journey — cold awareness campaigns that introduce your brand, consideration campaigns that educate and build trust, conversion campaigns that close, and retention campaigns that maximise lifetime value. Most agencies only optimise the bottom of the funnel. We engineer the whole machine so every stage feeds the next, dramatically lowering your overall customer acquisition cost.",
+    stat: { value: "200+", label: "Brands Managed" },
+  },
+  {
+    id: "results",
+    label: "Your Results",
+    title: "Predictable, measurable, scalable growth",
+    body: "Our clients see measurable improvements within the first 30 days — typically a significant reduction in CPAs by weeks 2–3, followed by compounding ROAS improvements as our creative testing and audience optimisation builds momentum. By month three, paid media becomes your highest-performing acquisition channel. By month six, it's the engine your entire business scales with.",
+    stat: { value: "AED 50M+", label: "Ad Spend Managed" },
+  },
+];
 
 export const metadata: Metadata = {
   title: "Paid Media Management | Meta, Google & TikTok Ads | Firas Digital",
@@ -68,12 +94,30 @@ const faqs = [
 ];
 
 const benefits = [
-  { title: "10X Average ROAS", desc: "Across 200+ brands managed, we consistently deliver returns that make paid media your most profitable growth channel." },
-  { title: "Full-Funnel Strategy", desc: "From awareness to conversion and retention — we build campaigns that work at every stage of the customer journey." },
-  { title: "Creative Production Included", desc: "Performance-first ad creatives — static, video, and UGC — produced and tested by our in-house creative team." },
-  { title: "Real-Time Reporting", desc: "Live dashboards and weekly plain-language reports. No jargon — just the numbers that move your business." },
-  { title: "Multi-Platform Coverage", desc: "From Meta and Google to TikTok, LinkedIn, Snapchat, and programmatic — we go where your audience is." },
-  { title: "Dedicated Strategist", desc: "A senior paid media specialist owns your account, backed by a full team of analysts, creatives, and data engineers." },
+  {
+    title: "10X Average ROAS",
+    desc: "Across 200+ brands managed, we consistently deliver returns that make paid media your most profitable growth channel.",
+  },
+  {
+    title: "Full-Funnel Strategy",
+    desc: "From awareness to conversion and retention — we build campaigns that work at every stage of the customer journey.",
+  },
+  {
+    title: "Creative Production Included",
+    desc: "Performance-first ad creatives — static, video, and UGC — produced and tested by our in-house creative team.",
+  },
+  {
+    title: "Real-Time Reporting",
+    desc: "Live dashboards and weekly plain-language reports. No jargon — just the numbers that move your business.",
+  },
+  {
+    title: "Multi-Platform Coverage",
+    desc: "From Meta and Google to TikTok, LinkedIn, Snapchat, and programmatic — we go where your audience is.",
+  },
+  {
+    title: "Dedicated Strategist",
+    desc: "A senior paid media specialist owns your account, backed by a full team of analysts, creatives, and data engineers.",
+  },
 ];
 
 const process = [
@@ -85,6 +129,7 @@ const process = [
 ];
 
 const platforms = ["Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads", "Snapchat Ads", "Pinterest Ads", "YouTube Ads", "Amazon Ads", "Microsoft Ads", "Spotify Ads", "Reddit Ads", "Programmatic"];
+
 const stats = [
   { value: "10X", label: "Average ROAS" },
   { value: "200+", label: "Brands Managed" },
@@ -98,7 +143,11 @@ const jsonLd = {
       "@type": "Service",
       "name": "Paid Media Management",
       "description": "Expert paid media management across Meta, Google, TikTok, LinkedIn and more. We deliver an average 10X ROAS for ambitious brands.",
-      "provider": { "@type": "Organization", "name": "Firas Digital", "url": "https://firasdigital.com" },
+      "provider": {
+        "@type": "Organization",
+        "name": "Firas Digital",
+        "url": "https://firasdigital.com",
+      },
       "areaServed": ["UAE", "Global"],
       "serviceType": "Paid Advertising Management",
     },
@@ -107,7 +156,10 @@ const jsonLd = {
       "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
         "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a,
+        },
       })),
     },
   ],
@@ -116,11 +168,22 @@ const jsonLd = {
 export default function PaidMediaPage() {
   return (
     <div className="min-h-screen bg-background">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Topbar */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10 flex items-center justify-between px-6 md:px-12 py-4">
-        <Link href="/" className="text-xl font-black text-primary tracking-tighter">Firas Digital<span className="text-secondary">.</span></Link>
-        <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">Book Free Audit →</Link>
+        <Link href="/" className="group text-xl font-black tracking-tighter transition-all duration-300 hover:scale-105 active:scale-95">
+          <span className="text-white group-hover:text-primary transition-colors duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,136,181,0.6)]">Firas Digital</span><span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
+        </Link>
+        <Link href="/contact" className="flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary transition-colors">
+          Book Free Audit →
+        </Link>
       </header>
+
+      {/* Breadcrumb */}
       <nav className="px-6 md:px-12 py-4 max-w-6xl mx-auto" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2 text-xs text-on-surface-variant/50">
           <li><Link href="/" className="hover:text-secondary transition-colors">Home</Link></li>
@@ -130,32 +193,61 @@ export default function PaidMediaPage() {
           <li className="text-on-surface-variant">Paid Media</li>
         </ol>
       </nav>
+
+      {/* Hero */}
       <section className="relative py-24 px-6 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-blue-600 opacity-[0.06] blur-[140px] rounded-full" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600 opacity-[0.05] blur-[120px] rounded-full" />
         </div>
         <div className="max-w-6xl mx-auto relative z-10">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">Paid Media Management</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">Dominate Every<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">High-Intent Platform</span></h1>
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10">Precision paid media management across Meta, Google, TikTok, LinkedIn and beyond. We engineer campaigns that deliver an average 10X ROAS for ambitious brands.</p>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+            Paid Media Management
+          </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
+            Dominate Every<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">High-Intent Platform</span>
+          </h1>
+          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10">
+            Precision paid media management across Meta, Google, TikTok, LinkedIn and beyond. We engineer campaigns that deliver an average 10X ROAS for ambitious brands.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-secondary text-on-secondary font-black text-base hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-secondary/25">Book Free Audit</Link>
-            <Link href="/#services" className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-on-surface/20 text-on-surface font-black text-base hover:border-secondary hover:text-secondary transition-all active:scale-95">View All Services →</Link>
+            <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-secondary text-on-secondary font-black text-base hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-secondary/25">
+              Book Free Audit
+            </Link>
+            <Link href="/#services" className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-on-surface/20 text-on-surface font-black text-base hover:border-secondary hover:text-secondary transition-all active:scale-95">
+              View All Services →
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* What is Paid Media */}
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-6">What is Paid Media Management?</h2>
+          <ServiceTabs tabs={paidMediaTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
-            <p>Paid media management is the discipline of planning, executing, and continuously optimising paid advertising campaigns across digital platforms to drive measurable business results. Unlike organic channels that take months to build, paid media delivers immediate reach and traffic — but only when managed with precision and expertise.</p>
-            <p>At Firas Digital, paid media management is not about running ads — it is about engineering profit. We begin with a deep analysis of your business model, target audiences, competitive landscape, and unit economics. This foundation informs a full-funnel campaign architecture that reaches potential customers at every stage of their journey: cold audiences discovering your brand for the first time, warm prospects who have engaged with your content, and high-intent users ready to convert.</p>
-            <p>Our paid media team manages campaigns across Meta Ads (Facebook and Instagram), Google Ads (Search, Display, Shopping, YouTube), TikTok Ads, LinkedIn Ads, Snapchat Ads, Pinterest, Reddit, Amazon Ads, Microsoft Ads, Spotify, and programmatic display networks. Every platform requires different strategies, creative formats, bidding approaches, and audience methodologies — and our specialists are certified and experienced across all of them.</p>
-            <p>Across 200+ brands and AED 50M+ in ad spend managed, Firas Digital has developed a proven system for delivering an average 10X return on ad spend — making paid media your most reliable and scalable growth engine.</p>
+            <p>
+              Paid media management is the discipline of planning, executing, and continuously optimising paid advertising campaigns across digital platforms to drive measurable business results. Unlike organic channels that take months to build, paid media delivers immediate reach and traffic — but only when managed with precision and expertise.
+            </p>
+            <p>
+              At Firas Digital, paid media management is not about running ads — it is about engineering profit. We begin with a deep analysis of your business model, target audiences, competitive landscape, and unit economics. This foundation informs a full-funnel campaign architecture that reaches potential customers at every stage of their journey: cold audiences discovering your brand for the first time, warm prospects who have engaged with your content, and high-intent users ready to convert.
+            </p>
+            <p>
+              Our paid media team manages campaigns across Meta Ads (Facebook and Instagram), Google Ads (Search, Display, Shopping, YouTube), TikTok Ads, LinkedIn Ads, Snapchat Ads, Pinterest, Reddit, Amazon Ads, Microsoft Ads, Spotify, and programmatic display networks. Every platform requires different strategies, creative formats, bidding approaches, and audience methodologies — and our specialists are certified and experienced across all of them.
+            </p>
+            <p>
+              What separates great paid media management from average results is the quality of creative and the speed of data-driven iteration. We produce platform-native ad creatives — from short-form video and UGC-style content to conversion-optimised static ads — and run structured A/B testing frameworks to identify and scale winning combinations at pace. The result: campaigns that improve every week, not plateau after month one.
+            </p>
+            <p>
+              Across 200+ brands and AED 50M+ in ad spend managed, Firas Digital has developed a proven system for delivering an average 10X return on ad spend — making paid media your most reliable and scalable growth engine.
+            </p>
           </div>
         </div>
       </section>
+
+      {/* Benefits */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-4">Why Choose Firas Digital for Paid Media?</h2>
@@ -164,7 +256,10 @@ export default function PaidMediaPage() {
             {benefits.map((b, i) => (
               <div key={i} className="bg-surface-container rounded-2xl p-6 border border-outline-variant/20 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" /></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round">
+                    <path d="M9 12l2 2 4-4" />
+                    <circle cx="12" cy="12" r="9" />
+                  </svg>
                 </div>
                 <h3 className="font-black text-on-surface">{b.title}</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">{b.desc}</p>
@@ -173,6 +268,8 @@ export default function PaidMediaPage() {
           </div>
         </div>
       </section>
+
+      {/* Process */}
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-4">Our Paid Media Process</h2>
@@ -181,42 +278,72 @@ export default function PaidMediaPage() {
             {process.map((p) => (
               <div key={p.step} className="flex gap-6 items-start bg-surface-container rounded-2xl p-6 border border-outline-variant/20">
                 <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-purple-500 flex-shrink-0 w-12">{p.step}</span>
-                <div><h3 className="font-black text-on-surface text-lg mb-2">{p.title}</h3><p className="text-sm text-on-surface-variant leading-relaxed">{p.desc}</p></div>
+                <div>
+                  <h3 className="font-black text-on-surface text-lg mb-2">{p.title}</h3>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Platforms */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-4">Platforms We Manage</h2>
           <p className="text-on-surface-variant mb-10 max-w-2xl">We run campaigns where your audience actually is — across every major paid channel.</p>
           <div className="flex flex-wrap gap-3">
-            {platforms.map((p) => (<span key={p} className="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-bold text-on-surface-variant hover:text-secondary hover:border-secondary/30 transition-colors">{p}</span>))}
+            {platforms.map((p) => (
+              <span key={p} className="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-bold text-on-surface-variant hover:text-secondary hover:border-secondary/30 transition-colors">
+                {p}
+              </span>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Stats */}
       <section className="py-16 px-6 bg-gradient-to-r from-blue-950/50 via-purple-950/50 to-background border-y border-outline-variant/10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {stats.map((s) => (<div key={s.label}><div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">{s.value}</div><div className="text-on-surface-variant text-sm font-bold uppercase tracking-widest">{s.label}</div></div>))}
+          {stats.map((s) => (
+            <div key={s.label}>
+              <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">{s.value}</div>
+              <div className="text-on-surface-variant text-sm font-bold uppercase tracking-widest">{s.label}</div>
+            </div>
+          ))}
         </div>
       </section>
+
+      {/* FAQ */}
       <section className="py-20 px-6 bg-surface-container-low">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-on-surface mb-4">Frequently Asked Questions</h2>
           <p className="text-on-surface-variant mb-12 max-w-2xl">Everything you need to know about our paid media management service.</p>
           <div className="flex flex-col gap-6">
-            {faqs.map((faq, i) => (<div key={i} className="bg-surface-container rounded-2xl p-6 border border-outline-variant/20"><h3 className="font-black text-on-surface mb-3 text-base">{faq.q}</h3><p className="text-sm text-on-surface-variant leading-relaxed">{faq.a}</p></div>))}
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-surface-container rounded-2xl p-6 border border-outline-variant/20">
+                <h3 className="font-black text-on-surface mb-3 text-base">{faq.q}</h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* CTA */}
       <section className="py-24 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black text-on-surface mb-6">Ready to 10X Your ROAS?</h2>
-          <p className="text-on-surface-variant mb-10 text-lg leading-relaxed">Book a free 30-minute paid media audit. We&apos;ll analyse your current campaigns (or lack thereof) and show you exactly what&apos;s leaving money on the table.</p>
-          <Link href="/contact" className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-secondary text-on-secondary font-black text-lg hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-secondary/20">Book Your Free Audit</Link>
+          <p className="text-on-surface-variant mb-10 text-lg leading-relaxed">
+            Book a free 30-minute paid media audit. We&apos;ll analyse your current campaigns (or lack thereof) and show you exactly what&apos;s leaving money on the table.
+          </p>
+          <Link href="/contact" className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-secondary text-on-secondary font-black text-lg hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-secondary/20">
+            Book Your Free Audit
+          </Link>
         </div>
       </section>
+
       <Footer />
     </div>
   );
