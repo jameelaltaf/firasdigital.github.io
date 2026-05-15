@@ -62,7 +62,7 @@ export default function ContactPage() {
       <section className="bg-background py-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" aria-hidden="true" />
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-primary opacity-[0.06] blur-[120px] rounded-full pointer-events-none" aria-hidden="true" />
-        <div className="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto relative z-10 grid sm:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-6">
               Performance Marketing Engine
@@ -146,7 +146,7 @@ export default function ContactPage() {
 
       {/* Main content: form + sidebar */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 gap-12 items-start">
           {/* Contact form */}
           <div>
             <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-5">

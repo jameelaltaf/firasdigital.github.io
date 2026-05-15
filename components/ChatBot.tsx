@@ -249,7 +249,7 @@ export default function ChatBot() {
 
                 {/* Quick reply buttons */}
                 {msg.role === "bot" && msg.buttons && msg.buttons.length > 0 && (
-                  <div className="ml-8 flex flex-wrap gap-2">
+                  <div className="ml-6 sm:ml-8 flex flex-wrap gap-2">
                     {msg.buttons.map((btn) => (
                       <button
                         key={btn}
@@ -269,7 +269,7 @@ export default function ChatBot() {
 
                 {/* Link button */}
                 {msg.role === "bot" && msg.linkButton && (
-                  <div className="ml-8">
+                  <div className="ml-6 sm:ml-8">
                     <Link
                       href={msg.linkButton.href}
                       className="inline-block px-4 py-2 rounded-full text-xs font-black transition-all hover:brightness-110 active:scale-95"

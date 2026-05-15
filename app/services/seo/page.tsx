@@ -204,7 +204,7 @@ export default function SEOPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-6">
             SEO Services
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
             Dominate Search.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-green-400">Own Your Category.</span>
           </h1>

@@ -66,7 +66,7 @@ export default function Blog() {
               {/* Gradient bar */}
               <div className={`h-1 w-full bg-gradient-to-r ${post.gradient}`} />
 
-              <div className="p-8 flex flex-col gap-4 flex-1">
+              <div className="p-6 sm:p-8 flex flex-col gap-4 flex-1">
                 <div className="flex items-center justify-between">
                   <span
                     className={`px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-wider ${post.categoryStyle}`}

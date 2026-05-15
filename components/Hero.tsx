@@ -207,7 +207,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <div className="relative flex justify-center items-center h-[420px] md:h-[520px]">
+          <div className="relative flex justify-center items-center h-[420px] sm:h-[460px] md:h-[520px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[200px] sm:w-[240px] md:w-[260px] lg:w-[290px] h-full">
                 <CrystalBolt />

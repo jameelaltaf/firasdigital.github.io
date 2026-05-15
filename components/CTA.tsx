@@ -19,7 +19,7 @@ export default function CTA() {
         <span className="inline-block px-4 py-1.5 rounded-full bg-on-primary/10 border border-on-primary/20 text-on-primary text-xs font-bold uppercase tracking-widest mb-8">
           Ready to Shift Gears?
         </span>
-        <h2 className="text-5xl md:text-7xl font-black text-on-primary mb-8 tracking-tight leading-[1.05]">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-on-primary mb-8 tracking-tight leading-[1.05]">
           Stop burning your budget
           <br />
           and start building your legacy.
@@ -29,7 +29,7 @@ export default function CTA() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-secondary text-on-secondary px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition-transform shadow-xl shadow-secondary/20 active:scale-95"
+          className="inline-block bg-secondary text-on-secondary px-8 sm:px-12 py-4 sm:py-5 rounded-full font-black text-base sm:text-xl hover:scale-105 transition-transform shadow-xl shadow-secondary/20 active:scale-95"
         >
           Get Your Free Strategy Session
         </Link>

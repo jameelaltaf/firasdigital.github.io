@@ -204,7 +204,7 @@ export default function SocialMediaPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-6">
             Social Media Management
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
             Stop the Scroll.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-primary">Own the Feed.</span>
           </h1>

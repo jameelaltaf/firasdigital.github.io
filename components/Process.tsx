@@ -26,11 +26,11 @@ export default function Process() {
           {/* Connector line */}
           <div className="hidden md:block absolute top-[38px] left-0 right-0 h-px bg-outline-variant/20 z-0" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
             {steps.map((step) => (
               <div key={step.num} className="fade-up text-center group">
                 <div
-                  className={`w-[76px] h-[76px] rounded-full border-4 flex items-center justify-center mx-auto mb-5 transition-all duration-300 group-hover:scale-110 ${
+                  className={`w-16 h-16 sm:w-[76px] sm:h-[76px] rounded-full border-4 flex items-center justify-center mx-auto mb-5 transition-all duration-300 group-hover:scale-110 ${
                     step.active
                       ? "border-secondary bg-secondary/10"
                       : "border-outline-variant/30 bg-background group-hover:border-secondary/60"

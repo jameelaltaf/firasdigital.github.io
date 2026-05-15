@@ -73,7 +73,7 @@ export default function CaseStudies() {
           {cases.map((c, i) => (
             <div
               key={i}
-              className="fade-up bg-surface-container rounded-3xl p-8 border border-outline-variant/20 flex flex-col gap-6 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group"
+              className="fade-up bg-surface-container rounded-3xl p-6 sm:p-8 border border-outline-variant/20 flex flex-col gap-6 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <span
@@ -82,7 +82,7 @@ export default function CaseStudies() {
                 {c.tag}
               </span>
 
-              <h3 className="text-xl font-black text-on-surface leading-snug">
+              <h3 className="text-lg sm:text-xl font-black text-on-surface leading-snug">
                 {c.headline}
               </h3>
 
