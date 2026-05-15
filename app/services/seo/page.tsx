@@ -204,7 +204,7 @@ export default function SEOPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-6">
             SEO Services
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-on-surface leading-[1.04] tracking-tight mb-6 max-w-4xl">
             Dominate Search.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-green-400">Own Your Category.</span>
           </h1>
@@ -229,7 +229,7 @@ export default function SEOPage() {
           <ServiceTabs tabs={seoTabs} />
           <div className="text-on-surface-variant leading-relaxed space-y-4">
             <p>
-              Search Engine Optimisation (SEO) is the practice of improving your website&apos;s visibility in organic (non-paid) search results on Google and other search engines. When someone searches for a product or service you offer, appearing on page one — ideally in the top three results — can be the difference between a thriving business and one that&apos;s invisible online. Over 90% of all search traffic goes to page one results, and the top three positions capture approximately 60% of all clicks.
+              Search Engine Optimisation (SEO) is the practice of improving your website's visibility in organic (non-paid) search results on Google and other search engines. When someone searches for a product or service you offer, appearing on page one — ideally in the top three results — can be the difference between a thriving business and one that&apos;s invisible online. Over 90% of all search traffic goes to page one results, and the top three positions capture approximately 60% of all clicks.
             </p>
             <p>
               Unlike paid advertising, which stops the moment you pause your budget, SEO is a compounding investment. Rankings and domain authority you build today continue to drive traffic, leads, and revenue for years. At Firas Digital, we think of SEO as the highest-leverage, highest-ROI channel in digital marketing — and our results back that up: we have delivered an average 340% increase in organic traffic for our clients, with many seeing significant ranking improvements within 60 days of engagement.
