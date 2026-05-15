@@ -84,6 +84,7 @@ export default function ChatBot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Initialize with greeting on open
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setMessages([
@@ -99,12 +100,14 @@ export default function ChatBot() {
     }
   }, [isOpen, messages.length]);
 
+  // Scroll to bottom on new messages
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
+  // Focus input when opened
   useEffect(() => {
     if (isOpen && inputRef.current) {
       setTimeout(() => inputRef.current?.focus(), 300);
@@ -192,6 +195,7 @@ export default function ChatBot() {
           className="flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/20"
           style={{ height: "520px", background: "#0f1220" }}
         >
+          {/* Header */}
           <div className="flex items-center gap-3 px-5 py-4 bg-surface-container border-b border-outline-variant/10 flex-shrink-0">
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
@@ -208,6 +212,7 @@ export default function ChatBot() {
             </div>
           </div>
 
+          {/* Messages */}
           <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex flex-col gap-2 ${msg.role === "user" ? "items-end" : "items-start"}`}>
@@ -242,8 +247,9 @@ export default function ChatBot() {
                   </div>
                 )}
 
+                {/* Quick reply buttons */}
                 {msg.role === "bot" && msg.buttons && msg.buttons.length > 0 && (
-                  <div className="ml-8 flex flex-wrap gap-2">
+                  <div className="ml-6 sm:ml-8 flex flex-wrap gap-2">
                     {msg.buttons.map((btn) => (
                       <button
                         key={btn}
@@ -261,8 +267,9 @@ export default function ChatBot() {
                   </div>
                 )}
 
+                {/* Link button */}
                 {msg.role === "bot" && msg.linkButton && (
-                  <div className="ml-8">
+                  <div className="ml-6 sm:ml-8">
                     <Link
                       href={msg.linkButton.href}
                       className="inline-block px-4 py-2 rounded-full text-xs font-black transition-all hover:brightness-110 active:scale-95"
@@ -277,6 +284,7 @@ export default function ChatBot() {
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Input */}
           <div className="flex items-center gap-2 px-4 py-3 border-t border-outline-variant/10 flex-shrink-0" style={{ background: "#0f1220" }}>
             <input
               ref={inputRef}
