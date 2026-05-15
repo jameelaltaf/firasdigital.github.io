@@ -48,7 +48,7 @@ export default function WhyUs() {
             <div
               key={p.num}
               className={`fade-up p-8 border border-outline-variant/20 rounded-2xl hover:bg-surface-container hover:border-outline-variant/40 transition-all duration-300 ${
-                i % 2 === 1 ? "md:mt-8" : ""
+                i % 2 === 1 ? "sm:mt-0 md:mt-8" : ""
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >

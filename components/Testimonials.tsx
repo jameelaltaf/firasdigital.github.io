@@ -43,7 +43,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="fade-up bg-white p-8 rounded-3xl shadow-sm border border-background/5 flex flex-col gap-6 hover:-translate-y-1 transition-transform duration-300"
+              className="fade-up bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-background/5 flex flex-col gap-6 hover:-translate-y-1 transition-transform duration-300"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="flex gap-1 text-primary">

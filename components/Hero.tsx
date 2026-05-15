@@ -201,13 +201,13 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3 pt-1">
               {["Trusted by 200+ brands", "Avg. 10X ROAS", "24/7 monitoring"].map((b) => (
                 <span key={b} className="flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant/60 bg-surface-container/50 px-3 py-1.5 rounded-full border border-outline-variant/15">
-                  <span className="text-secondary text-[10px]">✶</span>
+                  <span className="text-secondary text-[10px]">✦</span>
                   {b}
                 </span>
               ))}
             </div>
           </div>
-          <div className="relative flex justify-center items-center h-[420px] md:h-[520px]">
+          <div className="relative flex justify-center items-center h-[420px] sm:h-[460px] md:h-[520px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[200px] sm:w-[240px] md:w-[260px] lg:w-[290px] h-full">
                 <CrystalBolt />

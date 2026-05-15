@@ -22,7 +22,7 @@ export default function ServiceTabs({ tabs }: { tabs: ServiceTab[] }) {
             onClick={() => setActive(i)}
             className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
               active === i
-                ? "bg-secondary text-on-secondary shadow-lg shadow-secondary/20 scale-105"
+                ? "bg-secondary text-on-secondary shadow-lg shadow-secondary/20"
                 : "bg-surface-container border border-outline-variant/20 text-on-surface-variant hover:text-on-surface hover:border-secondary/30"
             }`}
           >

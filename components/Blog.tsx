@@ -6,7 +6,7 @@ const posts = [
     categoryStyle: "text-blue-400 bg-blue-500/10 border-blue-500/20",
     title: "Why Your Meta Ads Are Underperforming (And How to Fix It in 7 Days)",
     excerpt:
-      "Most brands leave 40–60% of their Meta ad performance on the table. Here’s the exact diagnostic framework we use to identify the 5 most common campaign killers.",
+      "Most brands leave 40–60% of their Meta ad performance on the table. Here's the exact diagnostic framework we use to identify the 5 most common campaign killers.",
     readTime: "8 min read",
     date: "Jan 2025",
     gradient: "from-blue-500 to-purple-600",
@@ -14,7 +14,7 @@ const posts = [
   {
     category: "SEO",
     categoryStyle: "text-secondary bg-secondary/10 border-secondary/20",
-    title: "The Technical SEO Audit That Doubled Our Client’s Traffic in 60 Days",
+    title: "The Technical SEO Audit That Doubled Our Client's Traffic in 60 Days",
     excerpt:
       "A step-by-step breakdown of the 200-point technical audit that uncovered 14 critical issues silently costing a Dubai SaaS company thousands in lost organic traffic every month.",
     readTime: "12 min read",
@@ -63,9 +63,10 @@ export default function Blog() {
               className="fade-up bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/20 flex flex-col hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
+              {/* Gradient bar */}
               <div className={`h-1 w-full bg-gradient-to-r ${post.gradient}`} />
 
-              <div className="p-8 flex flex-col gap-4 flex-1">
+              <div className="p-6 sm:p-8 flex flex-col gap-4 flex-1">
                 <div className="flex items-center justify-between">
                   <span
                     className={`px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-wider ${post.categoryStyle}`}
