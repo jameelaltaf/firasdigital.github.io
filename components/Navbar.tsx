@@ -63,9 +63,7 @@ export default function Navbar() {
             <span className="text-secondary group-hover:text-white transition-colors duration-300">.</span>
           </Link>
 
-          {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8">
-            {/* Services dropdown */}
             <li
               ref={servicesRef}
               className="relative"
@@ -94,7 +92,6 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
               </button>
 
-              {/* Dropdown panel — pt-3 bridges the hover gap so cursor moving into panel doesn't trigger onMouseLeave */}
               <div
                 className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 transition-all duration-200 ${
                   servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
@@ -149,32 +146,18 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Burger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle navigation menu"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div
         className={`fixed inset-0 bg-background z-40 flex items-center justify-center transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"

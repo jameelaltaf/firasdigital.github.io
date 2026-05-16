@@ -73,7 +73,7 @@ export default function Services() {
               Our Expertise →
             </span>
             <h2 className="text-4xl md:text-6xl font-black text-background leading-tight">
-              Capabilities designed for the{" "}
+              Capabilities designed for the{" "}
               <span className="text-primary">next era</span> of growth.
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default function Services() {
             href="/contact"
             className="group flex items-center gap-2 text-background/60 font-bold hover:text-primary transition-colors pb-1"
           >
-            View all services{" "}
+            View all services{" "}
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
