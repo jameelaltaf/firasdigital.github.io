@@ -91,30 +91,31 @@ function PuffyBolt() {
           className="w-full h-full"
         >
           <defs>
-            <linearGradient id="puffBase" x1="85%" y1="0%" x2="15%" y2="100%">
-              <stop offset="0%" stopColor="#ffd6ea" />
-              <stop offset="40%" stopColor="#ff88b5" />
-              <stop offset="100%" stopColor="#c8005a" />
+            <linearGradient id="puffBase" x1="75%" y1="0%" x2="25%" y2="100%">
+              <stop offset="0%" stopColor="#f5d0ff" />
+              <stop offset="28%" stopColor="#dd55ff" />
+              <stop offset="62%" stopColor="#ff4db3" />
+              <stop offset="100%" stopColor="#6600bb" />
             </linearGradient>
 
-            <radialGradient id="puffHL" cx="36%" cy="28%" r="52%">
-              <stop offset="0%" stopColor="rgba(255,255,255,0.72)" />
-              <stop offset="55%" stopColor="rgba(255,255,255,0.12)" />
+            <radialGradient id="puffHL" cx="34%" cy="26%" r="50%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.82)" />
+              <stop offset="48%" stopColor="rgba(255,255,255,0.14)" />
               <stop offset="100%" stopColor="rgba(255,255,255,0)" />
             </radialGradient>
 
-            <radialGradient id="limeSpot" cx="62%" cy="51%" r="22%">
-              <stop offset="0%" stopColor="rgba(201,242,54,0.55)" />
-              <stop offset="100%" stopColor="rgba(201,242,54,0)" />
+            <radialGradient id="pinkSheen" cx="78%" cy="42%" r="44%">
+              <stop offset="0%" stopColor="rgba(255,80,190,0.50)" />
+              <stop offset="100%" stopColor="rgba(255,80,190,0)" />
             </radialGradient>
 
-            <radialGradient id="rimDark" cx="50%" cy="90%" r="45%">
-              <stop offset="0%" stopColor="rgba(0,0,0,0.30)" />
-              <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+            <radialGradient id="rimDark" cx="50%" cy="92%" r="42%">
+              <stop offset="0%" stopColor="rgba(30,0,70,0.60)" />
+              <stop offset="100%" stopColor="rgba(30,0,70,0)" />
             </radialGradient>
 
             <filter id="puffGlow" x="-50%" y="-20%" width="200%" height="145%">
-              <feGaussianBlur stdDeviation="22" result="g" />
+              <feGaussianBlur stdDeviation="24" result="g" />
               <feMerge><feMergeNode in="g" /><feMergeNode in="g" /></feMerge>
             </filter>
 
@@ -123,11 +124,11 @@ function PuffyBolt() {
             </filter>
           </defs>
 
-          <path d={boltPath} fill="#ff88b5" filter="url(#puffGlow)" opacity="0.40" />
-          <path d={boltPath} fill="none" stroke="#ff88b5" strokeWidth="6" filter="url(#edgeSoft)" opacity="0.30" />
+          <path d={boltPath} fill="#c040ff" filter="url(#puffGlow)" opacity="0.45" />
+          <path d={boltPath} fill="none" stroke="#dd55ff" strokeWidth="6" filter="url(#edgeSoft)" opacity="0.35" />
           <path d={boltPath} fill="url(#puffBase)" />
           <path d={boltPath} fill="url(#puffHL)" />
-          <path d={boltPath} fill="url(#limeSpot)" />
+          <path d={boltPath} fill="url(#pinkSheen)" />
           <path d={boltPath} fill="url(#rimDark)" />
           <ellipse cx="105" cy="48" rx="18" ry="10" fill="rgba(255,255,255,0.22)" transform="rotate(-30 105 48)" />
         </svg>
