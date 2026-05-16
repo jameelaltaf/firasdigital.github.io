@@ -79,79 +79,15 @@ function PuffyBolt() {
   const parallaxRef = useRef<HTMLDivElement>(null);
   useParallax(parallaxRef);
 
-  // Rounded puffy lightning bolt path (3D inflated style)
-  const boltPath = "M 118,22 C 132,14 150,22 146,42 L 122,188 L 157,188 C 170,188 174,203 166,217 L 126,352 C 121,366 104,372 90,362 C 76,352 77,337 85,327 L 90,212 L 56,212 C 40,212 34,197 42,183 C 46,175 57,169 69,169 L 88,40 C 92,20 108,12 118,22 Z";
-
   return (
     <div ref={parallaxRef} className="select-none pointer-events-none" aria-hidden="true">
-      <div className="bolt-float w-full h-full">
-        <svg
-          viewBox="0 0 190 385"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
-          <defs>
-            {/* Base gradient: soft lavender top → vivid pink-purple mid → deep violet bottom */}
-            <linearGradient id="puffBase" x1="75%" y1="0%" x2="25%" y2="100%">
-              <stop offset="0%" stopColor="#f5d0ff" />
-              <stop offset="28%" stopColor="#dd55ff" />
-              <stop offset="62%" stopColor="#ff4db3" />
-              <stop offset="100%" stopColor="#6600bb" />
-            </linearGradient>
-
-            {/* Specular highlight — white radial, top-left (3D inflation) */}
-            <radialGradient id="puffHL" cx="34%" cy="26%" r="50%">
-              <stop offset="0%" stopColor="rgba(255,255,255,0.82)" />
-              <stop offset="48%" stopColor="rgba(255,255,255,0.14)" />
-              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-            </radialGradient>
-
-            {/* Pink sheen on right side */}
-            <radialGradient id="pinkSheen" cx="78%" cy="42%" r="44%">
-              <stop offset="0%" stopColor="rgba(255,80,190,0.50)" />
-              <stop offset="100%" stopColor="rgba(255,80,190,0)" />
-            </radialGradient>
-
-            {/* Bottom rim shadow for depth */}
-            <radialGradient id="rimDark" cx="50%" cy="92%" r="42%">
-              <stop offset="0%" stopColor="rgba(30,0,70,0.60)" />
-              <stop offset="100%" stopColor="rgba(30,0,70,0)" />
-            </radialGradient>
-
-            {/* Outer ambient glow behind the bolt */}
-            <filter id="puffGlow" x="-50%" y="-20%" width="200%" height="145%">
-              <feGaussianBlur stdDeviation="24" result="g" />
-              <feMerge><feMergeNode in="g" /><feMergeNode in="g" /></feMerge>
-            </filter>
-
-            {/* Subtle edge blur for soft outline */}
-            <filter id="edgeSoft">
-              <feGaussianBlur stdDeviation="1.5" />
-            </filter>
-          </defs>
-
-          {/* Ambient purple-pink glow blob */}
-          <path d={boltPath} fill="#c040ff" filter="url(#puffGlow)" opacity="0.45" />
-
-          {/* Soft edge halo */}
-          <path d={boltPath} fill="none" stroke="#dd55ff" strokeWidth="6" filter="url(#edgeSoft)" opacity="0.35" />
-
-          {/* Main body */}
-          <path d={boltPath} fill="url(#puffBase)" />
-
-          {/* 3D specular highlight */}
-          <path d={boltPath} fill="url(#puffHL)" />
-
-          {/* Pink sheen on right */}
-          <path d={boltPath} fill="url(#pinkSheen)" />
-
-          {/* Bottom rim darkening */}
-          <path d={boltPath} fill="url(#rimDark)" />
-
-          {/* Top surface highlight dot */}
-          <ellipse cx="105" cy="48" rx="18" ry="10" fill="rgba(255,255,255,0.22)" transform="rotate(-30 105 48)" />
-        </svg>
+      <div className="bolt-float w-full h-full flex items-center justify-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/lightning-bolt.webp"
+          alt=""
+          className="w-full h-full object-contain"
+        />
       </div>
     </div>
   );
