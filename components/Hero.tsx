@@ -75,82 +75,83 @@ function useCountUp(target: number, duration = 1800) {
   return { count, ref };
 }
 
-function CrystalBolt() {
+function PuffyBolt() {
   const parallaxRef = useRef<HTMLDivElement>(null);
   useParallax(parallaxRef);
+
+  // Rounded puffy lightning bolt path (3D inflated style)
+  const boltPath = "M 118,22 C 132,14 150,22 146,42 L 122,188 L 157,188 C 170,188 174,203 166,217 L 126,352 C 121,366 104,372 90,362 C 76,352 77,337 85,327 L 90,212 L 56,212 C 40,212 34,197 42,183 C 46,175 57,169 69,169 L 88,40 C 92,20 108,12 118,22 Z";
+
   return (
     <div ref={parallaxRef} className="select-none pointer-events-none" aria-hidden="true">
-    <div className="bolt-float w-full h-full">
-      <svg
-        viewBox="0 0 200 370"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-2xl"
-      >
-        <defs>
-          <linearGradient id="fg" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#d8b4fe" />
-            <stop offset="35%" stopColor="#a855f7" />
-            <stop offset="70%" stopColor="#7c3aed" />
-            <stop offset="100%" stopColor="#4c1d95" />
-          </linearGradient>
-          <linearGradient id="shadowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#06010f" />
-            <stop offset="100%" stopColor="#150630" />
-          </linearGradient>
-          <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0f0225" />
-            <stop offset="100%" stopColor="#220a4a" />
-          </linearGradient>
-          <linearGradient id="notchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#7c3aed" />
-            <stop offset="100%" stopColor="#c084fc" />
-          </linearGradient>
-          <linearGradient id="edgeHL" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.85" />
-            <stop offset="60%" stopColor="#e879f9" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
-          </linearGradient>
-          <linearGradient id="edgeHL2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#c084fc" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#ec4899" stopOpacity="0.3" />
-          </linearGradient>
-          <linearGradient id="glintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="white" stopOpacity="0" />
-            <stop offset="40%" stopColor="white" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </linearGradient>
-          <filter id="outerGlow" x="-60%" y="-20%" width="220%" height="140%">
-            <feGaussianBlur stdDeviation="28" result="b" />
-            <feMerge><feMergeNode in="b" /><feMergeNode in="b" /></feMerge>
-          </filter>
-          <filter id="edgeBlur">
-            <feGaussianBlur stdDeviation="2.5" />
-          </filter>
-          <filter id="glintBlur">
-            <feGaussianBlur stdDeviation="3" />
-          </filter>
-          <clipPath id="boltClip">
-            <path d="M143,12 L44,198 L104,198 L76,358 L162,162 L104,162 Z" />
-          </clipPath>
-        </defs>
-        <path d="M143,12 L44,198 L104,198 L76,358 L162,162 L104,162 Z" fill="#7c3aed" filter="url(#outerGlow)" opacity="0.45" />
-        <path d="M143,12 L44,198 L104,198 L76,358 L162,162 L104,162 Z" fill="#ec4899" filter="url(#outerGlow)" opacity="0.18" />
-        <path d="M129,19 L30,205 L90,205 L62,365 L148,169 L90,169 Z" fill="url(#shadowGrad)" opacity="0.95" />
-        <path d="M129,19 L143,12 L44,198 L30,205 Z" fill="url(#shadowGrad)" />
-        <path d="M30,205 L44,198 L104,198 L90,205 Z" fill="url(#stepGrad)" />
-        <path d="M90,205 L104,198 L76,358 L62,365 Z" fill="url(#shadowGrad)" />
-        <path d="M143,12 L44,198 L104,198 L76,358 L162,162 L104,162 Z" fill="url(#fg)" />
-        <path d="M104,198 L162,162 L104,162 Z" fill="url(#notchGrad)" opacity="0.9" />
-        <rect x="-60" y="0" width="80" height="380" fill="url(#glintGrad)" clipPath="url(#boltClip)" style={{ animation: "glintSweep 5s ease-in-out infinite 1s" }} filter="url(#glintBlur)" />
-        <line x1="143" y1="12" x2="44" y2="198" stroke="url(#edgeHL)" strokeWidth="1.8" strokeLinecap="round" />
-        <line x1="162" y1="162" x2="76" y2="358" stroke="url(#edgeHL2)" strokeWidth="1.4" strokeLinecap="round" />
-        <line x1="143" y1="12" x2="104" y2="162" stroke="rgba(255,255,255,0.18)" strokeWidth="1" strokeLinecap="round" />
-        <path d="M143,12 L44,198 L104,198 L76,358 L162,162 L104,162 Z" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="2" filter="url(#edgeBlur)" />
-        <circle cx="143" cy="14" r="3.5" fill="white" opacity="0.55" />
-        <circle cx="162" cy="162" r="2.5" fill="white" opacity="0.35" />
-      </svg>
-    </div>
+      <div className="bolt-float w-full h-full">
+        <svg
+          viewBox="0 0 190 385"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+        >
+          <defs>
+            {/* Base gradient: light pink top-right → brand pink → deep rose bottom-left */}
+            <linearGradient id="puffBase" x1="85%" y1="0%" x2="15%" y2="100%">
+              <stop offset="0%" stopColor="#ffd6ea" />
+              <stop offset="40%" stopColor="#ff88b5" />
+              <stop offset="100%" stopColor="#c8005a" />
+            </linearGradient>
+
+            {/* Specular highlight — white radial, top-left (simulates 3D inflation) */}
+            <radialGradient id="puffHL" cx="36%" cy="28%" r="52%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.72)" />
+              <stop offset="55%" stopColor="rgba(255,255,255,0.12)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+            </radialGradient>
+
+            {/* Lime accent at the notch (brand secondary color hotspot) */}
+            <radialGradient id="limeSpot" cx="62%" cy="51%" r="22%">
+              <stop offset="0%" stopColor="rgba(201,242,54,0.55)" />
+              <stop offset="100%" stopColor="rgba(201,242,54,0)" />
+            </radialGradient>
+
+            {/* Bottom rim shadow for depth */}
+            <radialGradient id="rimDark" cx="50%" cy="90%" r="45%">
+              <stop offset="0%" stopColor="rgba(0,0,0,0.30)" />
+              <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+            </radialGradient>
+
+            {/* Outer ambient glow behind the bolt */}
+            <filter id="puffGlow" x="-50%" y="-20%" width="200%" height="145%">
+              <feGaussianBlur stdDeviation="22" result="g" />
+              <feMerge><feMergeNode in="g" /><feMergeNode in="g" /></feMerge>
+            </filter>
+
+            {/* Subtle edge blur for soft outline */}
+            <filter id="edgeSoft">
+              <feGaussianBlur stdDeviation="1.5" />
+            </filter>
+          </defs>
+
+          {/* Ambient pink glow blob */}
+          <path d={boltPath} fill="#ff88b5" filter="url(#puffGlow)" opacity="0.40" />
+
+          {/* Soft edge halo */}
+          <path d={boltPath} fill="none" stroke="#ff88b5" strokeWidth="6" filter="url(#edgeSoft)" opacity="0.30" />
+
+          {/* Main body */}
+          <path d={boltPath} fill="url(#puffBase)" />
+
+          {/* 3D specular highlight */}
+          <path d={boltPath} fill="url(#puffHL)" />
+
+          {/* Lime accent at notch */}
+          <path d={boltPath} fill="url(#limeSpot)" />
+
+          {/* Bottom rim darkening */}
+          <path d={boltPath} fill="url(#rimDark)" />
+
+          {/* Top surface highlight dot */}
+          <ellipse cx="105" cy="48" rx="18" ry="10" fill="rgba(255,255,255,0.22)" transform="rotate(-30 105 48)" />
+        </svg>
+      </div>
     </div>
   );
 }
@@ -210,7 +211,7 @@ export default function Hero() {
           <div className="relative flex justify-center items-center h-[420px] sm:h-[460px] md:h-[520px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[200px] sm:w-[240px] md:w-[260px] lg:w-[290px] h-full">
-                <CrystalBolt />
+                <PuffyBolt />
               </div>
             </div>
             <div className="absolute bottom-4 right-0 sm:right-4 bg-surface-container-high/90 backdrop-blur-xl rounded-2xl px-6 py-5 text-center border border-outline-variant/20 shadow-2xl animate-float z-10">
