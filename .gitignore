@@ -11,6 +11,7 @@ out/
 
 # Generated
 next-env.d.ts
+tsconfig.tsbuildinfo
 
 # Lock files (keep package-lock.json if desired; remove line below to track it)
 # package-lock.json
